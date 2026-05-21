@@ -1,5 +1,7 @@
 package com.example.lab3.navigation
+import android.widget.Toast
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -15,6 +17,7 @@ fun StudentNavHost(
     studentViewModel: StudentViewModel
 ) {
     val navController = rememberNavController()
+    val context = LocalContext.current
 
     NavHost(
         navController = navController,
@@ -27,7 +30,7 @@ fun StudentNavHost(
                     navController.navigate(Routes.ADD_STUDENT)
                 },
                 onAddExamClick = {
-                    navController.navigate(Routes.ADD_EXAM)
+                    Toast.makeText(context, "Navigate to AddExamScreen", Toast.LENGTH_LONG).show()
                 },
                 onStudentNameClick = { student ->
                     studentViewModel.selectStudent(student)
