@@ -15,10 +15,11 @@ import com.example.lab3.data.Student
 @Composable
 fun StudentRow(
     student: Student,
-    onStudentNameClick: (Student) -> Unit
+    onStudentCardClick: (Student) -> Unit
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
+        onClick = { onStudentCardClick(student) }
     ) {
         Row(
             modifier = Modifier
@@ -28,12 +29,7 @@ fun StudentRow(
         ) {
             Text(text = student.studentNumber)
 
-            Text(
-                text = student.firstName,
-                modifier = Modifier.clickable {
-                    onStudentNameClick(student)
-                }
-            )
+            Text(text = student.firstName)
 
             Text(text = student.lastName)
         }

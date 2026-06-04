@@ -23,7 +23,7 @@ fun StudentListScreen(
     students: List<Student>,
     onAddStudentClick: () -> Unit,
     onAddExamClick: () -> Unit,
-    onStudentNameClick: (Student) -> Unit
+    onStudentCardClick: (Student) -> Unit
 ) {
     Scaffold { paddingValues ->
         Column(
@@ -46,7 +46,7 @@ fun StudentListScreen(
                 items(students) { student ->
                     StudentRow(
                         student = student,
-                        onStudentNameClick = onStudentNameClick
+                        onStudentCardClick = onStudentCardClick
                     )
                 }
             }

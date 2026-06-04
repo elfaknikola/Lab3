@@ -18,7 +18,6 @@ fun StudentNavHost(
 ) {
     val navController = rememberNavController()
     val context = LocalContext.current
-
     NavHost(
         navController = navController,
         startDestination = Routes.STUDENT_LIST
@@ -32,7 +31,7 @@ fun StudentNavHost(
                 onAddExamClick = {
                     Toast.makeText(context, "Navigate to AddExamScreen", Toast.LENGTH_LONG).show()
                 },
-                onStudentNameClick = { student ->
+                onStudentCardClick = { student ->
                     studentViewModel.selectStudent(student)
                     navController.navigate(Routes.STUDENT_DETAILS)
                 }
